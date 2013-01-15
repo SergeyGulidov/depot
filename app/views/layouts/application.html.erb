@@ -10,12 +10,17 @@
 	<div id="banner">
 		<%= image_tag("/images/logo.png") %>
 		<%= @page_title || "Pragmatic Bookshelf" %>
-		<% if session[:counter] >= 5 %>
-			<span class="counter"><%= pluralize(session[:counter], 'view') %></span>
-		<% end %>
+
 	</div>
 	<div id="columns">
 		<div id="side">
+			<% if @cart %>
+				<%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+					<%= render @cart %>
+				<% end %>
+			<% end %>
+
+
 			<ul>
 				<li><a href="#">Home</a></li>
 				<li><a href="#">Questions</a></li>
