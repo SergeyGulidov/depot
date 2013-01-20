@@ -31,5 +31,5 @@ class CombineItemsInCart < ActiveRecord::Migration
   # 		# удаление исходной записи
   # 		line_item.destroy
   # 	end
-  # end
+  end
 end
